@@ -26,6 +26,7 @@ async def give_graph(message: types.Message):
             _data = get_data(json_object, 'FUTURES')
         else:
             _data = 'Ошибка:\nВ сообщении должно быть указано SPOT или FUTURES'
+
         if 'Ошибка' in _data:
             await bot.send_message(message.from_user.id, 'Ошибка в получении данных с бинанса по указанным параметрам\n'
                                    + _data)
@@ -51,6 +52,39 @@ async def give_graph(message: types.Message):
             else:
                 await bot.send_message(message.from_user.id, 'Неизвестная ошибка в визуализации')
                 print('Неизвестная ошибка в визуализации')
+
+
+@dp.message_handler(text_contains='draw')
+async def draw_no_arrows(message: types.Message):
+    words_list = message.text.split(' ')
+    if 'SPOT' in message.text:
+        _data = get_data(json_object=None, trade='SPOT', msg_list=words_list)
+    elif 'FUTURES' in message.text:
+        _data = get_data(json_object=None, trade='FUTURES', msg_list=words_list)
+    else:
+        _data = 'Ошибка:\nВ сообщении должно быть указано SPOT или FUTURES'
+
+    if 'Ошибка' in _data:
+        await bot.send_message(message.from_user.id, 'Ошибка в получении данных с бинанса по указанным параметрам\n'
+                               + _data)
+        print('Ошибка в получении данных с бинанса по указанным параметрам')
+    else:
+        draw_result = draw_graph(_data, message.from_user.id)
+        if draw_result is None:
+            await bot.send_message(message.from_user.id,
+                                   'Данные с binance получены. Ошибка визуализации')
+            print('Данные с binance получены. Ошибка визуализации')
+        elif draw_result == 'Wrong data':
+            await bot.send_message(message.from_user.id, 'С binance пришли пустые значения')
+            print('С binance пришли пустые значения')
+        elif draw_result == 'Done':
+            await bot.send_document(message.from_user.id, open(f'{str(message.from_user.id)}.png', 'rb'))
+            await bot.send_photo(message.from_user.id, open(f'{str(message.from_user.id)}.png', 'rb'))
+            print('Success')
+            os.remove(f'{str(message.from_user.id)}.png')
+        else:
+            await bot.send_message(message.from_user.id, 'Неизвестная ошибка в визуализации')
+            print('Неизвестная ошибка в визуализации')
 
 
 if __name__ == "__main__":
