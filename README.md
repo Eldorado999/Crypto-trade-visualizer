@@ -18,8 +18,11 @@ Bot will choose scale for your trades and draw graph with arrows and price on it
 
 
 31.01.2023 Added "draw" feature:
+
   Send message to bot in format: draw {trading pair} {SPOT/FUTURES} {interval} {epoch time first candle}
+  
   Don't change the words order and use only spaces as a separator
+  
   Example: draw ETHUSDT SPOT 1h 1671912059000
   ![image](https://user-images.githubusercontent.com/116136718/215873151-a190e6b9-aa72-426a-9a43-9ee231d4296a.png)
   
