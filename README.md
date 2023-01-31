@@ -9,9 +9,9 @@ Send message to bot in this format:
       2.2.1. side":"SELL" or "BUY","price":4.78000000,"time":1646864680841 in epoch format.
 
 Example:
-visualize_trade FUTURES
-{"symbol":"DYDXUSDT","orders":[{"side":"SELL","price":4.78000000,"time":1646864680841},{"side":"BUY","price":4.89000000,"time":1650521511493},{"side":"BUY","price":4.91800000,"time":1650526507597},{"side":"BUY","price":4.93200000,"time":1650526704096},{"side":"SELL","price":3.04700000,"time":1652137890792},{"side":"SELL","price":3.04000000,"time":1652137899425},{"side":"SELL","price":3.02000000,"time":1652137976082},{"side":"BUY","price":2.00200000,"time":1652602379560},{"side":"BUY","price":2.01000000,"time":1652602401149},{"side":"SELL","price":2.06700000,"time":1652620639916},{"side":"SELL","price":2.06400000,"time":1652620649398},{"side":"SELL","price":2.06300000,"time":1652620662631},{"side":"SELL","price":2.05500000,"time":1652621526093},{"side":"SELL","price":2.05200000,"time":1652621533065},{"side":"SELL","price":2.02000000,"time":1652623547755},{"side":"SELL","price":1.75800000,"time":1654113370430}]}
+visualize_trade SPOT
+{"symbol":"BTCUSDT","orders":[{"side":"BUY","price":19966.30000000,"time":1662454072609},{"side":"BUY","price":18934.36000000,"time":1662563220506},{"side":"BUY","price":19379.00000000,"time":1662682912557},{"side":"SELL","price":20988.44000000,"time":1662729268459},{"side":"BUY","price":21059.18000000,"time":1662729400282},{"side":"BUY","price":22460.00000000,"time":1662992387915},{"side":"SELL","price":19330.00000000,"time":1663661260940},{"side":"BUY","price":19333.00000000,"time":1664436125492},{"side":"SELL","price":19224.10000000,"time":1664458625301},{"side":"SELL","price":19000.00000000,"time":1665591122149},{"side":"SELL","price":19193.20000000,"time":1666446610740},{"side":"SELL","price":19220.83000000,"time":1666448783697},{"side":"SELL","price":19223.24000000,"time":1666448915295},{"side":"SELL","price":18762.23000000,"time":1666841058248},{"side":"SELL","price":20712.51000000,"time":1667825173943},{"side":"SELL","price":19396.47000000,"time":1667825691222}]}
 
 Bot will choose scale for your trades and draw graph with arrows and price on it.
 
-![image](https://user-images.githubusercontent.com/116136718/215671886-922317e2-e023-4a89-bb63-07746e4ce53b.png)
+![image](https://user-images.githubusercontent.com/116136718/215672034-50198209-6320-4496-a56b-3e46d72f0003.png)
