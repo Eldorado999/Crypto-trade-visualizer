@@ -103,6 +103,10 @@ def draw_graph(data, user_id):
                     ax.text(arrow_obj.index, ycord, f"{arrow[3]}",
                             color='#FFFFFF', fontweight='bold', ha='center', va='bottom', fontsize=9)
                     blocked.append([arrow[2] - 8, arrow[2] + 8, ycord, ycord + str_count * 3 * one_percent])
+        else:
+            arrow_obj = prices.iloc[[14]]
+            ax.text(arrow_obj.index, high[14], "↓",
+                    color='#FFFFFF', fontweight='bold', ha='center', va='bottom', fontsize=12)
 
         ax.minorticks_on()
         ax.xaxis.set_ticks(prices.index, minor=True)
