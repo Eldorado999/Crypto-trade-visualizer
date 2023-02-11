@@ -45,6 +45,14 @@ def draw_graph(data, user_id):
         ax.bar(down.index, down.high - down.open, width2, bottom=down.open, color=col2)
         ax.bar(down.index, down.low - down.close, width2, bottom=down.close, color=col2)
 
+        # To better see min and max points on graph
+        scale_perc = (prices.high.max() - prices.low.min()) * 0.015
+        min_y_visualize = prices.low.min() - scale_perc
+        max_y_visualize = prices.high.max() + scale_perc
+
+        ax.axhline(y=min_y_visualize, alpha=0)
+        ax.axhline(y=max_y_visualize, alpha=0)
+
         if len(arrows) > 0:
             arrows = sorted(arrows, key=itemgetter(1), reverse=True)
             sorted_arrows = []
@@ -119,7 +127,7 @@ def draw_graph(data, user_id):
         ax.xaxis.set_ticks(major_ticks)
         ax.grid(which='major', color='#aaa', alpha=0.5)
         ax.grid(which='minor', color='#aaa', ls=':', alpha=0.5)
-        ax.yaxis.set_major_locator(plt.MaxNLocator(15))
+        ax.yaxis.set_major_locator(plt.MaxNLocator(18))
         ax.yaxis.set_minor_locator(plt.NullLocator())
         ax.xaxis.set_major_formatter(dates.DateFormatter('%d/%m/%y\n%H:%M'))
         ax.set_axisbelow(True)
